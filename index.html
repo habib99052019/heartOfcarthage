@@ -173,7 +173,7 @@ lien.href = urlAvecId;
                         <span class="num-glow">80</span>
                         <span class="gold-grad-anim">شهر</span>
                     </h1>
-                    <h3 class="text-expand mt-2" style="text-align: center; line-height: 1.5rem; font-size: 1rem; ">
+                    <h3 class="text-expand mt-2" style="text-align: center; line-height: 1.5rem; font-size: 1rem; " id="h33">
                         وفرصتك قبل الطرح
                     </h3>
                     <h3 class="mt-2" style="text-align: center; line-height: 1.5rem; font-weight: 500; font-size: 1rem; ">
@@ -548,6 +548,7 @@ fetch('https://back23-vk2y.onrender.com/laniding/65d07675ad8ca3b9cd3242f0')
   .then(data => {
     // Now 'data' contains the response from your backend
     console.log(data);
+	  document.getElementById("h33").textContent=data.name
   })
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
