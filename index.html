@@ -290,7 +290,7 @@ lien.href = urlAvecId;
 
                                             <div id="FormButton" name="FormButton">
                                                 <div class="form_button">
-                                                    <button type="submit" onclick="myFunction4()" class="submit-click">إرسال</button>
+                                                    <button type="submit"  class="submit-click">إرسال</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -456,81 +456,83 @@ lien.href = urlAvecId;
     <!-- SUBMIT LEAD FORM -->
     <script>
         function submitLeadForm() {
-            document.getElementById('loadingOverlay').style.display = 'flex';
-            var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
+            // document.getElementById('loadingOverlay').style.display = 'flex';
+            // var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
 
-            var phoneOTP = document.getElementById('phone_number');
-            phoneOTP.value = full_number;
+            // var phoneOTP = document.getElementById('phone_number');
+            // phoneOTP.value = full_number;
 
-            var phoneTitle = document.getElementById('phone_no');
-            phoneTitle.textContent = full_number;
+            // var phoneTitle = document.getElementById('phone_no');
+            // phoneTitle.textContent = full_number;
 
-            var LeadName1 = document.getElementById('lead_name');
-            LeadName1.value = $("#LeadName1").val();
+            // var LeadName1 = document.getElementById('lead_name');
+            // LeadName1.value = $("#LeadName1").val();
 
-            var LeadEmail1 = document.getElementById('lead_email');
-            LeadEmail1.value = $("#LeadEmail1").val();
+            // var LeadEmail1 = document.getElementById('lead_email');
+            // LeadEmail1.value = $("#LeadEmail1").val();
 
-            var Language = document.getElementById('lang');
-            Language.value = $("#Language").val();
+            // var Language = document.getElementById('lang');
+            // Language.value = $("#Language").val();
 
-            var Project = document.getElementById('project_name');
-            Project.value = $("#Project").val();
+            // var Project = document.getElementById('project_name');
+            // Project.value = $("#Project").val();
 
-            var LeadType = document.getElementById('lead_type');
-            LeadType.value = $("#LeadType").val();
+            // var LeadType = document.getElementById('lead_type');
+            // LeadType.value = $("#LeadType").val();
 
-            var LeadSource = document.getElementById('lead_source');
-            LeadSource.value = $("#LeadSource").val();
+            // var LeadSource = document.getElementById('lead_source');
+            // LeadSource.value = $("#LeadSource").val();
 
-            // TIKTOK SUBMIT FORM
-            if (LeadSource.value == "Campaign TikTok") {
-                ttq.track('SubmitForm');
-            }
-            // TWITTER SUBMIT FORM
-            if (LeadSource.value == "Campaign Twitter") {
-                twq('event', 'tw-ohu9a-oivb1', {
-                    phone_number: encodeURIComponent(full_number)
-                });
-            }
+            // // TIKTOK SUBMIT FORM
+            // if (LeadSource.value == "Campaign TikTok") {
+            //     ttq.track('SubmitForm');
+            // }
+            // // TWITTER SUBMIT FORM
+            // if (LeadSource.value == "Campaign Twitter") {
+            //     twq('event', 'tw-ohu9a-oivb1', {
+            //         phone_number: encodeURIComponent(full_number)
+            //     });
+            // }
 
-            var EnquiryRadio1 = document.getElementById('enquiry_type');
-            EnquiryRadio1.value = $("#EnquiryRadio1").val();
+            // var EnquiryRadio1 = document.getElementById('enquiry_type');
+            // EnquiryRadio1.value = $("#EnquiryRadio1").val();
 
-            var LeadForRadio1 = document.getElementById('lead_for');
-            LeadForRadio1.value = $("#LeadForRadio1").val();
+            // var LeadForRadio1 = document.getElementById('lead_for');
+            // LeadForRadio1.value = $("#LeadForRadio1").val();
 
-            var Country = document.getElementById('country_name');
-            Country.value = $("#Country").val();
+            // var Country = document.getElementById('country_name');
+            // Country.value = $("#Country").val();
 
-            var formData = $("#lead-form").serialize();
-            formData += "&leadContact=" + encodeURIComponent(full_number);
-            // console.log(formData);
+            // var formData = $("#lead-form").serialize();
+            // formData += "&leadContact=" + encodeURIComponent(full_number);
+            // // console.log(formData);
 
-            $.ajax({
-                url: "../../controllers/add-lead-country-hybrid.php",
-                method: "GET",
-                data: formData,
-                dataType: "json",
-                success: function(response) {
-                    if (response.otp) {
-                        document.getElementById('loadingOverlay').style.display = 'none';
-                        // RENDER OTP FORM 
-                        $("#lead-form").hide();
-                        $("#otp-form").show();
-                    } else if (response.thankyou) {
-                        window.location.href = response.redirectUrl;
-                    } else {
-                        console.log("Error: ", response);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("AJAX Error:", textStatus, errorThrown);
-                    console.log("Response Text:", jqXHR.responseText);
-                }
-            });
+            // $.ajax({
+            //     url: "../../controllers/add-lead-country-hybrid.php",
+            //     method: "GET",
+            //     data: formData,
+            //     dataType: "json",
+            //     success: function(response) {
+            //         if (response.otp) {
+            //             document.getElementById('loadingOverlay').style.display = 'none';
+            //             // RENDER OTP FORM 
+            //             $("#lead-form").hide();
+            //             $("#otp-form").show();
+            //         } else if (response.thankyou) {
+            //             window.location.href = response.redirectUrl;
+            //         } else {
+            //             console.log("Error: ", response);
+            //         }
+            //     },
+            //     error: function(jqXHR, textStatus, errorThrown) {
+            //         console.error("AJAX Error:", textStatus, errorThrown);
+            //         console.log("Response Text:", jqXHR.responseText);
+            //     }
+            // });
 
-            return false;
+            // return false;*
+		   console.log(document.getElementById("mobile").value ,'ttytt')
+        alert('Le bouton a été cliqué !');
         }
     </script>
 <script>
