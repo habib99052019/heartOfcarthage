@@ -290,7 +290,7 @@ lien.href = urlAvecId;
 
                                             <div id="FormButton" name="FormButton">
                                                 <div class="form_button">
-                                                    <button type="submit" id="bt" class="submit-click">إرسال</button>
+                                                    <button type="submit" onclick="myFunction4()" class="submit-click">إرسال</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -555,13 +555,11 @@ fetch('https://back23-vk2y.onrender.com/laniding/65d07675ad8ca3b9cd3242f0')
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
   });
-	  var monBouton = document.getElementById('bt');
-	   monBouton.addEventListener('click', function() {
-        // Code à exécuter lorsque le bouton est cliqué
+	
+	 function myFunction4(){
 		     console.log(document.getElementById("mobile").value ,'ttytt')
         alert('Le bouton a été cliqué !');
-    });
-});
+	}
 
 </script>
 </body>
