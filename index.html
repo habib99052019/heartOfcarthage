@@ -531,8 +531,46 @@ lien.href = urlAvecId;
             // });
 
             // return false;*
-		   console.log(document.getElementById("mobile").value ,'ttytt')
-        alert('Le bouton a été cliqué !');
+	// Données que vous souhaitez envoyer
+const donnees = {
+  name:document.getElementById("LeadName1").value,
+   isFacebook:false,
+   isWebSite:false,
+   phone:document.getElementById("mobile").value,
+   statut:"",
+   isNouveaux:true,
+   email:"",
+   project:document.getElementById("LeadEmail1").value
+};
+
+// URL de votre backend
+const url = 'https://back23-vk2y.onrender.com/'; // Remplacez cela par le véritable endpoint de votre backend
+
+// Configuration de la requête
+const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+    // Vous pouvez ajouter d'autres en-têtes si nécessaire
+  },
+  body: JSON.stringify(donnees)
+};
+
+// Effectuer la requête POST
+fetch(url, options)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erreur lors de la requête POST');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Réponse du serveur :', data);
+  })
+  .catch(error => {
+    console.error('Erreur:', error);
+  });
+
         }
     </script>
 <script>
@@ -558,10 +596,10 @@ fetch('https://back23-vk2y.onrender.com/laniding/65d07675ad8ca3b9cd3242f0')
     console.error('There was a problem with the fetch operation:', error);
   });
 	
-	 function myFunction4(){
-		     console.log(document.getElementById("mobile").value ,'ttytt')
-        alert('Le bouton a été cliqué !');
-	}
+	//  function myFunction4(){
+	// 	     console.log(document.getElementById("mobile").value ,'ttytt')
+ //        alert('Le bouton a été cliqué !');
+	// }
 
 </script>
 </body>
