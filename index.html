@@ -549,27 +549,27 @@ const url = 'https://back23-vk2y.onrender.com/pub/'; // Remplacez cela par le v�
 // Configuration de la requête
 const options = {
   method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-    // Vous pouvez ajouter d'autres en-têtes si nécessaire
-  },
+  // headers: {
+  //   'Content-Type': 'application/json'
+  //   // Vous pouvez ajouter d'autres en-têtes si nécessaire
+  // },
   body: JSON.stringify(donnees)
 };
 
 // Effectuer la requête POST
 fetch(url, options)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Erreur lors de la requête POST');
-    }
-    return response.json();
-  })
+  // .then(response => {
+  //   if (!response.ok) {
+  //     throw new Error('Erreur lors de la requête POST');
+  //   }
+  //   return response.json();
+  // })
   .then(data => {
     console.log('Réponse du serveur :', data);
   })
-  .catch(error => {
-    console.error('Erreur:', error);
-  });
+  // .catch(error => {
+  //   console.error('Erreur:', error);
+  // });
 
         }
     </script>
