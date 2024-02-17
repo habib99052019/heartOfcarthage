@@ -527,7 +527,25 @@
             return false;
         }
     </script>
+<scrip>
+	// Assume you have a backend endpoint like '/api/data' that returns JSON data
 
+fetch('https://back23-vk2y.onrender.com/emp/jj/')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Now 'data' contains the response from your backend
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+</scrip>
 </body>
 
 </html>
