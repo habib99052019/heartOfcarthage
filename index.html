@@ -578,7 +578,7 @@ fetch(url, options)
 	console.log(parm,"parmetter4")
 	// Assume you have a backend endpoint like '/api/data' that returns JSON data
 
-fetch('https://back23-vk2y.onrender.com/laniding/65d07675ad8ca3b9cd3242f0')
+fetch('https://back23-vk2y.onrender.com/laniding/'+parm.split('?')[1]+"/")
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
