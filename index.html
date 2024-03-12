@@ -200,7 +200,8 @@ lien.href = urlAvecId;
                                 <div class="inputs" style="font-weight: 400; overflow-y: scroll;">
                                     <!-- OTP FORM  -->
                                     <div id="otp-form" class="contact-form" dir="ltr" style="display: none;">
-                                        <form method="POST" action="../../controllers/verify-otp.php">
+                                        <form method="POST">
+<!-- 						!-- action="../../controllers/verify-otp.php" -->
                                             <h5 class="gold-grad" style="text-align: center;">
                                                 OTP has been sent to
                                                 <span id="phone_no"></span>
@@ -461,7 +462,7 @@ lien.href = urlAvecId;
     <!-- SUBMIT LEAD FORM -->
     <script>
         function submitLeadForm() {
-            document.getElementById('loadingOverlay').style.display = 'flex';
+            document.getElementById('loadingOverlay').style.display = 'block';
             // var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
 
             // var phoneOTP = document.getElementById('phone_number');
