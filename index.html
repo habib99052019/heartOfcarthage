@@ -230,7 +230,8 @@ lien.href = urlAvecId;
                                     </div>
                                     <!--NEW FORM-->
                                     <div class="contact-form" dir="ltr">
-                                        <form id="lead-form" onsubmit="return submitLeadForm();">
+<!--                                         <form id="lead-form" onsubmit="return submitLeadForm();"> -->
+					    <form id="myForm" >
                                             <div style="display: none">
                                                 <input type="text" id="Project" name="Project" value="Empire Estates (Private Pool)" />
                                                 <input type="text" id="LeadType" name="LeadType" value="Apartment" />
@@ -463,6 +464,48 @@ lien.href = urlAvecId;
 
     <!-- SUBMIT LEAD FORM -->
     <script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get form data
+    const formData = {
+         name:document.getElementById("LeadName1").value,
+   isFacebook:false,
+   isWebSite:false,
+   phone:document.getElementById("mobile").value,
+   statut:"",
+   isNouveaux:true,
+	isWebSite:true,
+	isFacebook:false,
+   email:"",
+   project:document.getElementById("LeadEmail1").value
+    };
+
+    // Send form data to backend
+    fetch('https://back23-vk2y.onrender.com/pub/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // Optionally, do something after successful submission
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        // Optionally, handle errors
+    });
+});
+
+
         function submitLeadForm() {
             document.getElementById('loadingOverlay').style.display = 'flex';
             // var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
@@ -540,46 +583,22 @@ lien.href = urlAvecId;
 
             // return false;*
 	// Données que vous souhaitez envoyer
-const donnees = {
-  name:document.getElementById("LeadName1").value,
-   isFacebook:false,
-   isWebSite:false,
-   phone:document.getElementById("mobile").value,
-   statut:"",
-   isNouveaux:true,
-	isWebSite:true,
-	isFacebook:false,
-   email:"",
-   project:document.getElementById("LeadEmail1").value
-};
-console.log(donnees,"er")
-URL de votre backend
-const url = 'https://back23-vk2y.onrender.com/pub/'; // Remplacez cela par le véritable endpoint de votre backend
+// const donnees = {
+//   name:document.getElementById("LeadName1").value,
+//    isFacebook:false,
+//    isWebSite:false,
+//    phone:document.getElementById("mobile").value,
+//    statut:"",
+//    isNouveaux:true,
+// 	isWebSite:true,
+// 	isFacebook:false,
+//    email:"",
+//    project:document.getElementById("LeadEmail1").value
+// };
+// console.log(donnees,"er")
+// URL de votre backend
+// const url = 'https://back23-vk2y.onrender.com/pub/'; // Remplacez cela par le véritable endpoint de votre backend
 
-// Configuration de la requête
-const options = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-    // Vous pouvez ajouter d'autres en-têtes si nécessaire
-  },
-  body: JSON.stringify(donnees)
-};
-
-// Effectuer la requête POST
-fetch(url, options)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Erreur lors de la requête POST');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Réponse du serveur :', data);
-  })
-  .catch(error => {
-    console.error('Erreur:', error);
-  });
 
         }
     </script>
