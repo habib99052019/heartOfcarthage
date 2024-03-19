@@ -553,33 +553,33 @@ const donnees = {
    project:document.getElementById("LeadEmail1").value
 };
 console.log(donnees,"er")
-// URL de votre backend
-// const url = 'https://back23-vk2y.onrender.com/pub/'; // Remplacez cela par le véritable endpoint de votre backend
+URL de votre backend
+const url = 'https://back23-vk2y.onrender.com/pub/'; // Remplacez cela par le véritable endpoint de votre backend
 
-// // Configuration de la requête
-// const options = {
-//   method: 'POST',
-//   // headers: {
-//   //   'Content-Type': 'application/json'
-//   //   // Vous pouvez ajouter d'autres en-têtes si nécessaire
-//   // },
-//   body: JSON.stringify(donnees)
-// };
+// Configuration de la requête
+const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+    // Vous pouvez ajouter d'autres en-têtes si nécessaire
+  },
+  body: JSON.stringify(donnees)
+};
 
-// // Effectuer la requête POST
-// fetch(url, options)
-//   // .then(response => {
-//   //   if (!response.ok) {
-//   //     throw new Error('Erreur lors de la requête POST');
-//   //   }
-//   //   return response.json();
-//   // })
-//   .then(data => {
-//     console.log('Réponse du serveur :', data);
-//   })
-//   // .catch(error => {
-//   //   console.error('Erreur:', error);
-//   // });
+// Effectuer la requête POST
+fetch(url, options)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erreur lors de la requête POST');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Réponse du serveur :', data);
+  })
+  .catch(error => {
+    console.error('Erreur:', error);
+  });
 
         }
     </script>
